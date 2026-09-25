@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>noori 🎀</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Comic Sans MS", "Trebuchet MS", cursive;
+            background: linear-gradient(135deg, #ffd6e7, #fff0f6, #ffdce9);
+            overflow: hidden;
+        }
+
+        /* floating hearts */
+        .heart {
+            position: fixed;
+            color: #ff8fb5;
+            font-size: 28px;
+            opacity: 0.7;
+            animation: float 5s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        .h1 {
+            left: 8%;
+            top: 15%;
+            animation-delay: 0s;
+        }
+
+        .h2 {
+            right: 10%;
+            top: 20%;
+            animation-delay: 1s;
+        }
+
+        .h3 {
+            left: 15%;
+            bottom: 15%;
+            animation-delay: 2s;
+        }
+
+        .h4 {
+            right: 15%;
+            bottom: 12%;
+            animation-delay: 3s;
+        }
+
+        .h5 {
+            left: 50%;
+            top: 8%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(-10deg);
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(10deg);
+            }
+        }
+
+        /* main card */
+        .card {
+            position: relative;
+            width: 90%;
+            max-width: 680px;
+            padding: 55px 35px 40px;
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.93);
+
+            border: 3px solid #ffb6cf;
+            border-radius: 30px;
+
+            box-shadow:
+                0 15px 40px rgba(180, 80, 120, 0.20);
+
+            z-index: 2;
+        }
+
+        /* ribbon */
+        .ribbon {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            background: #ff8fb5;
+            color: white;
+
+            padding: 12px 35px;
+            border-radius: 20px;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            box-shadow: 0 5px 15px rgba(200, 80, 120, 0.2);
+        }
+
+        .ribbon::before,
+        .ribbon::after {
+            content: "🎀";
+            position: absolute;
+            font-size: 28px;
+            top: 3px;
+        }
+
+        .ribbon::before {
+            left: -38px;
+        }
+
+        .ribbon::after {
+            right: -38px;
+        }
+
+        /* heading */
+        h1 {
+            margin-top: 20px;
+            color: #d95783;
+            font-size: 26px;
+            line-height: 1.55;
+        }
+
+        .name {
+            color: #ff6f9f;
+            font-size: 36px;
+        }
+
+        .subtext {
+            color: #a85d78;
+            font-size: 17px;
+            margin-top: 12px;
+        }
+
+        /* buttons */
+        .buttons {
+            position: relative;
+            height: 90px;
+            margin-top: 25px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        button {
+            border: none;
+            padding: 14px 32px;
+
+            border-radius: 20px;
+
+            font-size: 18px;
+            font-family: inherit;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+
+            transition: transform 0.2s ease;
+        }
+
+        /* yes */
+        #yes {
+            background: #ff8fb5;
+            color: white;
+        }
+
+        #yes:hover {
+            background: #ff6f9f;
+            transform: scale(1.08);
+        }
+
+        /* no */
+        #no {
+            background: #ffe0ea;
+            color: #d95783;
+
+            position: relative;
+
+            transition:
+                left 0.15s ease,
+                top 0.15s ease;
+        }
+
+        /* success message */
+        #message {
+            display: none;
+
+            color: #d95783;
+            font-size: 25px;
+            font-weight: bold;
+
+            line-height: 1.6;
+        }
+
+        .tiny {
+            margin-top: 15px;
+            color: #c77a96;
+            font-size: 14px;
+        }
+
+        /* mobile */
+        @media (max-width: 600px) {
+
+            .card {
+                padding: 50px 22px 35px;
+            }
+
+            h1 {
+                font-size: 21px;
+            }
+
+            .name {
+                font-size: 31px;
+            }
+
+            .subtext {
+                font-size: 15px;
+            }
+
+            button {
+                padding: 12px 26px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- floating decorations -->
+
+    <div class="heart h1">♡</div>
+    <div class="heart h2">♥</div>
+    <div class="heart h3">♡</div>
+    <div class="heart h4">♥</div>
+    <div class="heart h5">♡</div>
+
+
+    <!-- main card -->
+
+    <div class="card">
+
+        <div class="ribbon">
+            for noori 🎀
+        </div>
+
+
+        <h1>
+
+            <span class="name">
+                noori, cutie pie 🎀
+            </span>
+
+            <br>
+
+            please show us your conversation with wania last night
+
+            <br>
+
+            when we were doing a prank 🥺💗
+
+        </h1>
+
+
+        <div class="subtext">
+            pretty please? 🥹👉👈
+        </div>
+
+
+        <div class="buttons">
+
+            <button id="yes">
+                yes ♡
+            </button>
+
+            <button id="no">
+                no 😭
+            </button>
+
+        </div>
+
+
+        <div id="message">
+
+            yayyy!! 🎀💗
+
+            <br>
+
+            thank you noori, you're the besttt 🥹💕
+
+        </div>
+
+
+        <div class="tiny">
+            there is definitely no trick here... 🎀
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const noButton = document.getElementById("no");
+        const yesButton = document.getElementById("yes");
+        const message = document.getElementById("message");
+
+
+        /* Make the NO button escape */
+
+        function escapeNo() {
+
+            const padding = 20;
+
+            const maxX =
+                window.innerWidth -
+                noButton.offsetWidth -
+                padding;
+
+            const maxY =
+                window.innerHeight -
+                noButton.offsetHeight -
+                padding;
+
+
+            const x =
+                Math.random() *
+                (maxX - padding) +
+                padding;
+
+
+            const y =
+                Math.random() *
+                (maxY - padding) +
+                padding;
+
+
+            noButton.style.position = "fixed";
+
+            noButton.style.left = x + "px";
+
+            noButton.style.top = y + "px";
+        }
+
+
+        /* Desktop */
+
+        noButton.addEventListener(
+            "mouseenter",
+            escapeNo
+        );
+
+
+        /* Mobile */
+
+        noButton.addEventListener(
+            "touchstart",
+            function(event) {
+
+                event.preventDefault();
+
+                escapeNo();
+
+            }
+        );
+
+
+        /* If they somehow click it */
+
+        noButton.addEventListener(
+            "click",
+            escapeNo
+        );
+
+
+        /* YES button */
+
+        yesButton.addEventListener(
+            "click",
+            function() {
+
+                document.querySelector("h1").style.display = "none";
+
+                document.querySelector(".subtext").style.display = "none";
+
+                document.querySelector(".buttons").style.display = "none";
+
+                document.querySelector(".tiny").style.display = "none";
+
+                message.style.display = "block";
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
